@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="unicode utf-8">
+		<meta name ="viewport" content="width=device-width, initial-scale=1">
+		<title> Planta iot</title>
+		<script src="/socket.io/socket.io.js"> </script>
+		<script>
+			var socket = io.connect();
+				socket.on("dadoArduino", function(data){
+					document.getElementById("planta").innerHTML = data;
+				});
+		</script>
+		<style>
+			body{
+				text-align: center;
+				margin:0 auto;
+			}
+			img {
+				margin-top: 20px;
+				height: 300px;
+			}
+			#planta {
+				color: green;
+				font-size: 38px;
+				font-family: arial;
+				padding-top: 2%;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+		<img src="plantinha.png" alt="platinha.png">
+		<div id="planta" ng-controller="mens" class="ng-scope ng-binding"></div> 
+		</div>
+	</body>
+</html>
+		
