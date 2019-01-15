@@ -3,12 +3,13 @@
 // Released under GPL v3
 // https://github.com/lif3code/PlantinhaIot
 
-int sensorAguaPin = A0;
+
+int sensorAguaPin = A0; //porta do sensor
 
 void setup() {
   delay(1000);
-  pinMode(sensorAguaPin, INPUT);     
-  Serial.begin(9600);
+  pinMode(sensorAguaPin, INPUT); //difinindo a porta como entrada    
+  Serial.begin(9600); //inicializando a comunicação serial
   Serial.println("Olá!");
   delay(4000);
   Serial.println("Eu sou Plantinha. A PlantaIot!!!");
@@ -16,9 +17,10 @@ void setup() {
 }
 
 void loop() {
+  //lendo valor no sensor
+  int valor_analogico = analogRead(sensorAguaPin); 
 
-  int valor_analogico = analogRead(sensorAguaPin);
-
+  //comparando valor do sensor
   if (valor_analogico > 900 && valor_analogico < 1023) {
     Serial.println("Ei, você vai me matar de sede???");    
     delay(1000);
